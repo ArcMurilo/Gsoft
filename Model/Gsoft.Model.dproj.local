@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2016/09/21 10:39:05.000.621,=rtl.dcp</Transaction>
+    <Transaction>2016/09/21 10:39:26.000.390,C:\Users\Murilo Augusto\Documents\Embarcadero\Studio\Projects\Package1.dproj=D:\GSOFT\Packages\Gsoft\Model\Gsoft.Model.dproj</Transaction>
+    <Transaction>2016/09/21 10:39:33.000.428,=D:\GSOFT\Packages\Gsoft\Model\Unit1.pas</Transaction>
+    <Transaction>2016/09/21 10:39:49.000.311,D:\GSOFT\Packages\Gsoft\Model\Unit1.pas=D:\GSOFT\Packages\Gsoft\Model\Gsoft.Model.Produto.pas</Transaction>
+    <Transaction>2016/09/21 10:46:53.000.976,=D:\GSOFT\Packages\Gsoft\Model\Unit1.pas</Transaction>
+    <Transaction>2016/09/21 10:47:20.000.172,D:\GSOFT\Packages\Gsoft\Model\Unit1.pas=D:\GSOFT\Packages\Gsoft\Model\Gsoft.Model.TabelaPreco.pas</Transaction>
+    <Transaction>2016/09/21 10:48:13.000.266,=D:\GSOFT\Packages\Gsoft\Model\Unit1.pas</Transaction>
+    <Transaction>2016/09/21 10:48:43.000.461,D:\GSOFT\Packages\Gsoft\Model\Unit1.pas=D:\GSOFT\Packages\Gsoft\Model\Gsoft.Model.ProdutoTabelaPreco.pas</Transaction>
+    <Transaction>2016/09/21 11:01:38.000.152,=D:\GSOFT\Packages\Gsoft\Model\Unit1.pas</Transaction>
+    <Transaction>2016/09/21 11:02:01.000.119,D:\GSOFT\Packages\Gsoft\Model\Unit1.pas=D:\GSOFT\Packages\Gsoft\Model\Gsoft.Model.Item.pas</Transaction>
+    <Transaction>2016/09/21 11:02:29.000.233,D:\GSOFT\Packages\Gsoft\Model\Gsoft.Model.Item.pas=</Transaction>
+    <Transaction>2016/09/21 11:02:46.000.100,=D:\GSOFT\Packages\Gsoft\Model\Unit1.pas</Transaction>
+    <Transaction>2016/09/21 11:02:54.000.881,D:\GSOFT\Packages\Gsoft\Model\Unit1.pas=D:\GSOFT\Packages\Gsoft\Model\Gsoft.Model.VendaItem.pas</Transaction>
+    <Transaction>2016/09/21 11:43:24.000.697,D:\GSOFT\Packages\Gsoft\Model\Gsoft.Model.VendaItem.pas=</Transaction>
+    <Transaction>2016/09/21 18:36:48.688,=D:\GSOFT\Packages\Gsoft\Model\Unit1.pas</Transaction>
+    <Transaction>2016/09/21 18:37:25.536,D:\GSOFT\Packages\Gsoft\Model\lib\Gsoft.Model.LancamentoVenda.Item.pas=D:\GSOFT\Packages\Gsoft\Model\Unit1.pas</Transaction>
+    <Transaction>2016/09/21 19:12:34.594,D:\GSOFT\Packages\Gsoft\Model\lib\Gsoft.Model.Produto.pas=D:\GSOFT\Packages\Gsoft\Model\Gsoft.Model.Produto.pas</Transaction>
+    <Transaction>2016/09/21 19:13:07.273,D:\GSOFT\Packages\Gsoft\Model\lib\Gsoft.Model.ProdutoTabelaPreco.pas=D:\GSOFT\Packages\Gsoft\Model\Gsoft.Model.ProdutoTabelaPreco.pas</Transaction>
+    <Transaction>2016/09/21 19:13:15.246,D:\GSOFT\Packages\Gsoft\Model\lib\Gsoft.Model.TabelaPreco.pas=D:\GSOFT\Packages\Gsoft\Model\Gsoft.Model.TabelaPreco.pas</Transaction>
+  </Transactions>
+</BorlandProject>

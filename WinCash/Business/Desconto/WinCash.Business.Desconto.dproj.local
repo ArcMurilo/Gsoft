@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2016/09/21 12:01:25.173,=rtl.dcp</Transaction>
+    <Transaction>2016/09/21 12:01:55.405,D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\WinCash.Business.Desconto.dproj=C:\Users\Murilo Augusto\Documents\Embarcadero\Studio\Projects\Package1.dproj</Transaction>
+    <Transaction>2016/09/21 12:02:10.825,=Gsoft.Model.dcp</Transaction>
+    <Transaction>2016/09/21 12:08:16.162,=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Unit1.pas</Transaction>
+    <Transaction>2016/09/21 12:08:33.711,D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\WinCash.Business.Desconto.AliquotaGeral.pas=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Unit1.pas</Transaction>
+    <Transaction>2016/09/21 12:30:52.686,D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\lib\WinCash.Business.Desconto.AliquotaGeral.pas=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\WinCash.Business.Desconto.AliquotaGeral.pas</Transaction>
+    <Transaction>2016/09/21 16:20:26.298,=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Unit1.pas</Transaction>
+    <Transaction>2016/09/21 16:21:04.892,D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\lib\WinCash.Business.Desconto.AliquotaVendedorProduto.pas=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Unit1.pas</Transaction>
+    <Transaction>2016/09/21 16:27:19.609,=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Unit1.pas</Transaction>
+    <Transaction>2016/09/21 16:27:43.327,D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\lib\WinCash.Business.Desconto.AliquotaDesconto.pas=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

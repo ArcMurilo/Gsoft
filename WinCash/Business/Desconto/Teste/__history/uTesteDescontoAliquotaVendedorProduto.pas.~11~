@@ -1,0 +1,53 @@
+﻿unit uTesteDescontoAliquotaVendedorProduto;
+
+interface
+
+uses
+  TestFramework,
+  WinCash.Business.Desconto.AliquotaVendedorProduto,
+  WinCash.Business.Desconto.AliquotaDesconto;
+
+type
+  TTesteDescontoAliquotaVendedorProduto = class(TTestCase)
+  private
+
+  published
+    procedure testeDescontoMaximo();
+    procedure testeValorLiquidoValido();
+
+  end;
+
+implementation
+
+{ TTesteDescontoAliquotaVendedorProduto }
+
+procedure TTesteDescontoAliquotaVendedorProduto.testeDescontoMaximo;
+var
+  regraDesconto: TDescontoAliquotaVendedorProduto;
+begin
+  regraDesconto := TDescontoAliquotaVendedorProduto.Create(
+    TAliquotaDesconto.Create(8), TAliquotaDesconto.Create(10)
+  );
+  checkEquals(8, regraDesconto.descontoMaximo(100));
+  regraDesconto.Free();
+  regraDesconto := TDescontoAliquotaVendedorProduto.Create(
+    TAliquotaDesconto.Create(18), TAliquotaDesconto.Create(10)
+  );
+  checkEquals(10, regraDesconto.descontoMaximo(100));
+  regraDesconto.Free();
+end;
+
+procedure TTesteDescontoAliquotaVendedorProduto.testeValorLiquidoValido;
+var
+  desconto: TDescontoAliquotaVendedorProduto;
+begin
+  desconto := TDescontoAliquotaVendedorProduto.Create(
+    TAliquotaDesconto.Create(10), TAliquotaDesconto.Create(8)
+  );
+
+end;
+
+initialization
+  TestFramework.RegisterTest('TTesteDescontoAliquotaVendedorProduto Teste', TTesteDescontoAliquotaVendedorProduto.Suite);
+
+end.

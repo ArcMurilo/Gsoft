@@ -1,0 +1,25 @@
+unit WinCash.Business.Desconto.AliquotaDesconto;
+
+interface
+
+type
+  TDescontoAliquota = class
+  private
+    FAliquota: double;
+  public
+    property aliquota: double read FAliquota;
+    constructor Create(aAliquota : double);
+  end;
+
+implementation
+
+{ TDescontoAliquota }
+
+constructor TDescontoAliquota.Create(aAliquota: double);
+begin
+  self.FAliquota := 0;
+  if (aAliquota >= 0) and (aAliquota <= 100) then
+    self.FAliquota := aAliquota;
+end;
+
+end.

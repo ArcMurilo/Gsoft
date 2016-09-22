@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2016/09/21 11:59:41.168,=rtl.dcp</Transaction>
+    <Transaction>2016/09/21 12:00:02.055,D:\GSOFT\Packages\Gsoft\WinCash\Business\WinCashBusiness.dproj=C:\Users\Murilo Augusto\Documents\Embarcadero\Studio\Projects\Package1.dproj</Transaction>
+    <Transaction>2016/09/21 12:00:16.666,D:\GSOFT\Packages\Gsoft\WinCash\Business\WinCash.Business.dproj=D:\GSOFT\Packages\Gsoft\WinCash\Business\WinCashBusiness.dproj</Transaction>
+    <Transaction>2016/09/21 12:01:00.798,=Gsoft.Model.dcp</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,7 @@
+unit WinCash.Business.Desconto.AliquotaGeral;
+
+interface
+
+implementation
+
+end.

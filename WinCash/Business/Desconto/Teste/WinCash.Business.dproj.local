@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2016/09/21 12:03:59.864,=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\Unit1.pas</Transaction>
+    <Transaction>2016/09/21 12:04:17.204,D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\uTesteDesconto.pas=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\Unit1.pas</Transaction>
+    <Transaction>2016/09/21 16:13:05.567,D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\uTesteDescontoAliquotaGeral.pas=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\uTesteDesconto.pas</Transaction>
+    <Transaction>2016/09/21 16:21:42.104,=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\Unit1.pas</Transaction>
+    <Transaction>2016/09/21 16:23:29.137,D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\uTesteDescontoAliquotaVendedorProduto.pas=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\Unit1.pas</Transaction>
+    <Transaction>2016/09/21 18:10:35.559,=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\Unit1.pas</Transaction>
+    <Transaction>2016/09/21 18:10:45.107,D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\uTesteDescontoRateamento.pas=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

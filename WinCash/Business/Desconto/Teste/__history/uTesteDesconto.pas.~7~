@@ -1,0 +1,31 @@
+unit uTesteDesconto;
+
+interface
+
+uses
+  TestFramework,
+  WinCash.Business.Desconto.AliquotaGeral;
+
+type
+  TTesteDesconto = class(TTestCase)
+
+  published
+    procedure testeDescontoAliquotaGeral();
+  end;
+
+implementation
+
+{ TTesteDesconto }
+
+procedure TTesteDesconto.testeDescontoAliquotaGeral;
+var
+  descontoAliquotaGeral: TDescontoAliquotaGeral;
+begin
+  descontoAliquotaGeral := TDescontoAliquotaGeral.Create(10);
+  checkTrue(descontoAliquotaGeral.descontoMaximo(100, 1) = 90);
+end;
+
+initialization
+  TestFramework.RegisterTest('TTesteDesconto Testes', TTesteDesconto.Suite);
+
+end.

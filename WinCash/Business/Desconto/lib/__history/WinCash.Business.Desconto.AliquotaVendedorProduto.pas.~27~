@@ -1,0 +1,55 @@
+unit WinCash.Business.Desconto.AliquotaVendedorProduto;
+
+interface
+
+uses
+  WinCash.Business.Desconto.AliquotaDesconto,
+  Math;
+
+type
+  TDescontoAliquotaVendedorProduto = class
+  private
+    FAliquotaVendedor : TAliquotaDesconto;
+    FAliquotaProduto : TAliquotaDesconto;
+    function getMenorAliquota() : TAliquotaDesconto;
+  public
+    constructor Create(aAliquotaDescontoVendedor, aAliquotaDescontoProduto : TAliquotaDesconto);
+    function descontoMaximo(valorTotalBruto : double) : double;
+    function isValorLiquidoValido(valorTotalLiquido,
+  valorTotalBruto: double): boolean;
+  end;
+
+implementation
+
+{ TDescontoAliquotaVendedorProduto }
+
+constructor TDescontoAliquotaVendedorProduto.Create(aAliquotaDescontoVendedor,
+  aAliquotaDescontoProduto: TAliquotaDesconto);
+begin
+  self.FAliquotaVendedor := aAliquotaDescontoVendedor;
+  self.FAliquotaProduto := aAliquotaDescontoProduto;
+end;
+
+function TDescontoAliquotaVendedorProduto.descontoMaximo(
+  valorTotalBruto: double): double;
+begin
+  result := valorTotalBruto * self.getMenorAliquota().aliquota / 100;
+end;
+
+function TDescontoAliquotaVendedorProduto.isValorLiquidoValido(valorTotalLiquido,
+  valorTotalBruto: double): boolean;
+var
+  valorTotalLiquidoMinimo: double;
+begin
+  valorTotalLiquidoMinimo := valorTotalBruto - self.descontoMaximo(valorTotalBruto);
+  result := valorTotalLiquido - valorTotalLiquidoMinimo < 0.01;
+end;
+
+function TDescontoAliquotaVendedorProduto.getMenorAliquota() : TAliquotaDesconto;
+begin
+  result := self.FAliquotaVendedor;
+  if self.FAliquotaVendedor.aliquota > self.FAliquotaProduto.aliquota then
+    result := self.FAliquotaProduto;
+end;
+
+end.

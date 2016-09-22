@@ -1,0 +1,28 @@
+unit uTesteDescontoRateamento;
+
+interface
+
+uses
+  TestFramework,
+  Gsoft.Model.LancamentoVenda.Item,
+  Gsoft.Model.Produto;
+
+type
+  TTesteDescontoRateamento = class(TTestCase)
+  private
+    listaItens : TLancamentoVendaItemLista;
+  published
+    procedure testeRateamentoDescontoAliquotaGeral();
+
+  end;
+
+implementation
+
+{ TTesteDescontoRateamento }
+
+procedure TTesteDescontoRateamento.testeRateamentoDescontoAliquotaGeral();
+begin
+
+end;
+
+end.

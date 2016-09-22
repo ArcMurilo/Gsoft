@@ -1,0 +1,30 @@
+unit Gsoft.Model.VendaItem;
+
+interface
+
+uses
+  Gsoft.Model.Produto;
+
+type
+  TVendaItem = class
+  private
+    FCodigo: integer;
+    FCodVenda: integer;
+    FProduto : TProduto;
+    function GetDescricao: string;
+  public
+    property Codigo: integer read FCodigo write FCodigo;
+    property CodVenda: integer read FCodVenda write FCodVenda;
+    property Descricao: string read GetDescricao;
+  end;
+
+implementation
+
+{ TVendaItem }
+
+function TVendaItem.GetDescricao: string;
+begin
+  result := self.FProduto.Produto;
+end;
+
+end.
