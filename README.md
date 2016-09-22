@@ -1,0 +1,2 @@
+# Gsoft
+Packages da Gsoft
