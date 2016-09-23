@@ -9,11 +9,17 @@ type
   public
     property aliquota: double read FAliquota;
     constructor Create(aAliquota : double);
+    function aplicarAliquotaDesconto(valor : double) : double;
   end;
 
 implementation
 
 { TDescontoAliquota }
+
+function TAliquotaDesconto.aplicarAliquotaDesconto(valor: double): double;
+begin
+  result := valor * self.aliquota / 100;
+end;
 
 constructor TAliquotaDesconto.Create(aAliquota: double);
 begin

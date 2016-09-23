@@ -34,6 +34,7 @@ requires
 contains
   WinCash.Business.Desconto.AliquotaGeral in 'lib\WinCash.Business.Desconto.AliquotaGeral.pas',
   WinCash.Business.Desconto.AliquotaVendedorProduto in 'lib\WinCash.Business.Desconto.AliquotaVendedorProduto.pas',
-  WinCash.Business.Desconto.AliquotaDesconto in 'lib\WinCash.Business.Desconto.AliquotaDesconto.pas';
+  WinCash.Business.Desconto.AliquotaDesconto in 'lib\WinCash.Business.Desconto.AliquotaDesconto.pas',
+  WinCash.Business.Desconto.RateamentoDesconto in 'lib\WinCash.Business.Desconto.RateamentoDesconto.pas';
 
 end.

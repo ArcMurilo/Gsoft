@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2016/09/22 17:38:04.309,D:\GSOFT\Packages\Gsoft\Model\Test\Gsoft.ModelTestes.dproj=D:\GSOFT\Packages\Gsoft\Model\Test\Gsoft.dproj</Transaction>
+    <Transaction>2016/09/22 17:38:34.449,=D:\GSOFT\Packages\Gsoft\Model\Test\Unit1.pas</Transaction>
+    <Transaction>2016/09/22 17:38:45.397,D:\GSOFT\Packages\Gsoft\Model\Test\uTesteModelValorMonetario.pas=D:\GSOFT\Packages\Gsoft\Model\Test\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{339E1326-1423-4123-B130-2BEECFD7A053}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Gsoft.Model.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Test\Gsoft.ModelTestes.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Gsoft_Model">
+        <MSBuild Projects="Gsoft.Model.dproj"/>
+    </Target>
+    <Target Name="Gsoft_Model:Clean">
+        <MSBuild Projects="Gsoft.Model.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Gsoft_Model:Make">
+        <MSBuild Projects="Gsoft.Model.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Gsoft_ModelTestes">
+        <MSBuild Projects="Test\Gsoft.ModelTestes.dproj"/>
+    </Target>
+    <Target Name="Gsoft_ModelTestes:Clean">
+        <MSBuild Projects="Test\Gsoft.ModelTestes.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Gsoft_ModelTestes:Make">
+        <MSBuild Projects="Test\Gsoft.ModelTestes.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Gsoft_Model;Gsoft_ModelTestes"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Gsoft_Model:Clean;Gsoft_ModelTestes:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Gsoft_Model:Make;Gsoft_ModelTestes:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

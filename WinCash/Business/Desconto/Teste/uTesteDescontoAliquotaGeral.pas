@@ -4,6 +4,7 @@ interface
 
 uses
   TestFramework,
+  Gsoft.Model.ValorMonetario,
   WinCash.Business.Desconto.AliquotaGeral,
   WinCash.Business.Desconto.AliquotaDesconto;
 
@@ -26,7 +27,11 @@ var
   descontoAliquotaGeral: TDescontoAliquotaGeral;
 begin
   descontoAliquotaGeral := TDescontoAliquotaGeral.Create(TAliquotaDesconto.Create(10));
-  CheckEquals(10, descontoAliquotaGeral.descontoMaximo(100));
+  checkTrue(
+    TValorMonetario.Create(10).Equals(
+      descontoAliquotaGeral.descontoMaximo(TValorMonetario.Create(100))
+    )
+  );
 end;
 
 procedure TTesteDescontoAliquotaGeral.testeValorLiquidoValido;
@@ -34,9 +39,15 @@ var
   descontoAliquotaGeral: TDescontoAliquotaGeral;
 begin
   descontoAliquotaGeral := TDescontoAliquotaGeral.Create(TAliquotaDesconto.Create(10));
-  checkTrue(descontoAliquotaGeral.isValorLiquidoValido(90, 100));
-  checkTrue(descontoAliquotaGeral.isValorLiquidoValido(110, 100));
-  checkFalse(descontoAliquotaGeral.isValorLiquidoValido(80, 100));
+  checkFalse(
+    descontoAliquotaGeral.isValorLiquidoValido(TValorMonetario.Create(89.99), TValorMonetario.Create(100))
+  );
+  checkTrue(
+    descontoAliquotaGeral.isValorLiquidoValido(TValorMonetario.Create(90.00), TValorMonetario.Create(100))
+  );
+  checkTrue(
+    descontoAliquotaGeral.isValorLiquidoValido(TValorMonetario.Create(90.01), TValorMonetario.Create(100))
+  );
 end;
 
 initialization

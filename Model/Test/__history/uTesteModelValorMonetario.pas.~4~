@@ -1,0 +1,31 @@
+unit uTesteModelValorMonetario;
+
+interface
+
+uses
+  TestFramework,
+  Gsoft.Model.ValorMonetario;
+
+type
+  TTesteModelValorMonetario = class(TTestCase)
+
+  published
+    procedure testeArredondamento();
+  end;
+
+implementation
+
+{ TTesteModelValorMonetario }
+
+procedure TTesteModelValorMonetario.testeArredondamento;
+var
+  valor: TValorMonetario;
+begin
+  valor := TValorMonetario.Create(1.005);
+  checkEquals(1.01, valor.valor);
+end;
+
+initialization
+  TestFramework.RegisterTest('TTesteModelValorMonetario Teste', TTesteModelValorMonetario.Suite);
+
+end.

@@ -1,0 +1,105 @@
+unit uDMCliente;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
+  Gsoft.Model.Produto,
+  Gsoft.Model.LancamentoVenda.Item;
+
+type
+  TdmCliente = class(TDataModule)
+    tbProduto: TFDMemTable;
+    tbProdutoCodigo: TIntegerField;
+    tbProdutoDescricao: TStringField;
+    tbProdutoPrecoVenda: TFloatField;
+    tbItem: TFDMemTable;
+    tbItemValorUnitarioBruto: TFloatField;
+    tbItemQuantidade: TFloatField;
+    tbItemDesconto: TFloatField;
+    dsProduto: TDataSource;
+    dsItem: TDataSource;
+    tbItemDescricaoProduto: TStringField;
+    procedure DataModuleCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    function selecionarProduto() : TProduto;
+    procedure adicionarItem(item : TLancamentoVendaItem);
+    procedure limparItens();
+
+  end;
+
+var
+  dmCliente: TdmCliente;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+procedure TdmCliente.adicionarItem(item: TLancamentoVendaItem);
+begin
+  tbItem.Append();
+  tbItemDescricaoProduto.Value := item.produto.Produto;
+  tbItemValorUnitarioBruto.Value := item.valorUnitarioBruto.valor;
+  tbItemQuantidade.Value := item.quantidade;
+  tbItemDesconto.Value := item.valorTotalDesconto.valor;
+  tbItem.Post();
+end;
+
+procedure TdmCliente.DataModuleCreate(Sender: TObject);
+begin
+  tbProduto.Open();
+  tbItem.Open();
+
+  tbProduto.Append();
+  tbProdutoCodigo.Value := 1;
+  tbProdutoDescricao.Value := 'Coca Cola Lata';
+  tbProdutoPrecoVenda.Value := 3.50;
+  tbProduto.Post();
+
+  tbProduto.Append();
+  tbProdutoCodigo.Value := 2;
+  tbProdutoDescricao.Value := 'X-Bacon';
+  tbProdutoPrecoVenda.Value := 16.90;
+  tbProduto.Post();
+
+  tbProduto.Append();
+  tbProdutoCodigo.Value := 3;
+  tbProdutoDescricao.Value := 'Suco Laranja';
+  tbProdutoPrecoVenda.Value := 3.90;
+  tbProduto.Post();
+
+  tbProduto.Append();
+  tbProdutoCodigo.Value := 4;
+  tbProdutoDescricao.Value := 'Halls';
+  tbProdutoPrecoVenda.Value := 1.60;
+  tbProduto.Post();
+
+  tbProduto.Append();
+  tbProdutoCodigo.Value := 5;
+  tbProdutoDescricao.Value := 'X-Salada';
+  tbProdutoPrecoVenda.Value := 12.90;
+  tbProduto.Post();
+end;
+
+procedure TdmCliente.limparItens;
+begin
+  for i := 1 to tbItem.RecordCount do
+    tbItem.Delete();
+end;
+
+function TdmCliente.selecionarProduto: TProduto;
+begin
+  result := TProduto.Create();
+  result.Codigo := tbProdutoCodigo.Value;
+  result.Produto := tbProdutoDescricao.Value;
+  result.PrecoVenda.valor := tbProdutoPrecoVenda.Value;
+end;
+
+end.

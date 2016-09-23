@@ -3,23 +3,24 @@ unit Gsoft.Model.Produto;
 interface
 
 uses
-  Gsoft.Model.ProdutoTabelaPreco;
+  Gsoft.Model.ProdutoTabelaPreco,
+  Gsoft.Model.ValorMonetario;
 
 type
   TProduto = class
     private
     FCodigo: integer;
     FProduto: string;
-    FCustoRealUnitario: double;
-    FPrecoVenda: double;
+    FCustoRealUnitario: TValorMonetario;
+    FPrecoVenda: TValorMonetario;
     FDescontoMaximo: double;
     FTabelasPreco: TProdutoTabelaPrecoLista;
 
     public
     property Codigo: integer read FCodigo write FCodigo;
     property Produto: string read FProduto write FProduto;
-    property CustoRealUnitario: double read FCustoRealUnitario write FCustoRealUnitario;
-    property PrecoVenda: double read FPrecoVenda write FPrecoVenda;
+    property CustoRealUnitario: TValorMonetario read FCustoRealUnitario;
+    property PrecoVenda: TValorMonetario read FPrecoVenda;
     property DescontoMaximo: double read FDescontoMaximo write FDescontoMaximo;
     property TabelasPreco: TProdutoTabelaPrecoLista read FTabelasPreco write FTabelasPreco;
 
@@ -33,6 +34,8 @@ implementation
 
 constructor TProduto.Create;
 begin
+  FCustoRealUnitario := TValorMonetario.Create(0);
+  FPrecoVenda := TValorMonetario.Create(0);
   TabelasPreco := TProdutoTabelaPrecoLista.Create();
 end;
 

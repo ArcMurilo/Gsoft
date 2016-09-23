@@ -1,0 +1,50 @@
+unit uTesteDescontoAliquotaGeral;
+
+interface
+
+uses
+  TestFramework,
+  Gsoft.Model.ValorMonetario,
+  WinCash.Business.Desconto.AliquotaGeral,
+  WinCash.Business.Desconto.AliquotaDesconto;
+
+type
+  TTesteDescontoAliquotaGeral = class(TTestCase)
+
+  published
+    procedure testeDescontoMaximo();
+    procedure testeValorLiquidoValido();
+  end;
+
+implementation
+
+{$D+}
+
+{ TTesteDesconto }
+
+procedure TTesteDescontoAliquotaGeral.testeDescontoMaximo;
+var
+  descontoAliquotaGeral: TDescontoAliquotaGeral;
+begin
+  descontoAliquotaGeral := TDescontoAliquotaGeral.Create(TAliquotaDesconto.Create(10));
+  CheckEquals(
+    TValorMonetario.Create(10),
+    descontoAliquotaGeral.descontoMaximo(TValorMonetario.Create(100))
+  );
+end;
+
+procedure TTesteDescontoAliquotaGeral.testeValorLiquidoValido;
+var
+  descontoAliquotaGeral: TDescontoAliquotaGeral;
+begin
+  descontoAliquotaGeral := TDescontoAliquotaGeral.Create(TAliquotaDesconto.Create(10));
+  checkFalse(descontoAliquotaGeral.isValorLiquidoValido(89.99, 100));
+  checkTrue(descontoAliquotaGeral.isValorLiquidoValido(90.00, 100));
+  checkTrue(descontoAliquotaGeral.isValorLiquidoValido(99.01, 100));
+end;
+
+initialization
+  TestFramework.RegisterTest('TTesteDescontoAliquotaGeral Testes',
+                             TTesteDescontoAliquotaGeral.Suite);
+
+end.

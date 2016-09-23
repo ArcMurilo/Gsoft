@@ -3,7 +3,8 @@ unit WinCash.Business.Desconto.AliquotaGeral;
 interface
 
 uses
-  WinCash.Business.Desconto.AliquotaDesconto;
+  WinCash.Business.Desconto.AliquotaDesconto,
+  Gsoft.Model.ValorMonetario;
 
 type
   TDescontoAliquotaGeral = class
@@ -12,8 +13,8 @@ type
   public
     property aliquotaDescontoMaximo: TAliquotaDesconto read FAliquotaDescontoMaximo;
     constructor Create(aAliquotaDescontoMaximo : TAliquotaDesconto);
-    function descontoMaximo(valorTotalBruto : double) : double;
-    function isValorLiquidoValido(valorTotalLiquido, valorTotalBruto: double) : boolean;
+    function descontoMaximo(valorTotalBruto : TValorMonetario) : TValorMonetario;
+    function isValorLiquidoValido(valorTotalLiquido, valorTotalBruto: TValorMonetario) : boolean;
   end;
 
 implementation
@@ -27,17 +28,17 @@ begin
   self.FAliquotaDescontoMaximo := aAliquotaDescontoMaximo;
 end;
 
-function TDescontoAliquotaGeral.descontoMaximo(valorTotalBruto : double) : double;
+function TDescontoAliquotaGeral.descontoMaximo(valorTotalBruto : TValorMonetario) : TValorMonetario;
 begin
-  result := valorTotalBruto * self.aliquotaDescontoMaximo.aliquota / 100;
+  result := TValorMonetario.Create(valorTotalBruto.valor * self.aliquotaDescontoMaximo.aliquota / 100);
 end;
 
-function TDescontoAliquotaGeral.isValorLiquidoValido(valorTotalLiquido, valorTotalBruto: double) : boolean;
+function TDescontoAliquotaGeral.isValorLiquidoValido(valorTotalLiquido, valorTotalBruto: TValorMonetario) : boolean;
 var
-  valorTotalLiquidoMinimo: double;
+  valorTotalLiquidoMinimo: TValorMonetario;
 begin
-  valorTotalLiquidoMinimo := valorTotalBruto - self.descontoMaximo(valorTotalBruto);
-  result := valorTotalLiquidoMinimo - valorTotalLiquido < 0.01;
+  valorTotalLiquidoMinimo := TValorMonetario.Create(valorTotalBruto.valor - self.descontoMaximo(valorTotalBruto).valor);
+  result := TValorMonetario.Create(valorTotalLiquidoMinimo.valor - valorTotalLiquido.valor).valor < 0.01;
 end;
 
 end.

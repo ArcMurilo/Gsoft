@@ -1,0 +1,47 @@
+object frmConsProd: TfrmConsProd
+  Left = 0
+  Top = 0
+  Caption = 'Cons. Produto'
+  ClientHeight = 201
+  ClientWidth = 447
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -15
+  Font.Name = 'Arial'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 17
+  object DBGrid1: TDBGrid
+    Left = 8
+    Top = 8
+    Width = 431
+    Height = 185
+    DataSource = dmCliente.dsProduto
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -15
+    TitleFont.Name = 'Arial'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'Codigo'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Descricao'
+        Width = 167
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PrecoVenda'
+        Width = 105
+        Visible = True
+      end>
+  end
+end

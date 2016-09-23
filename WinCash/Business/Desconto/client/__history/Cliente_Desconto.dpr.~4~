@@ -1,0 +1,16 @@
+program Cliente_Desconto;
+
+uses
+  Vcl.Forms,
+  uCliente in 'uCliente.pas' {Form3},
+  uDMCliente in 'uDMCliente.pas' {dmCliente: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm3, Form3);
+  Application.CreateForm(TdmCliente, dmCliente);
+  Application.Run;
+end.

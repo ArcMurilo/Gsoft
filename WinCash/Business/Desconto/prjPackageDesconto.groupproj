@@ -12,6 +12,9 @@
         <Projects Include="Teste\WinCash.Business.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="client\Cliente_Desconto.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -47,14 +50,23 @@
     <Target Name="WinCash_Business:Make">
         <MSBuild Projects="Teste\WinCash.Business.dproj" Targets="Make"/>
     </Target>
+    <Target Name="Cliente_Desconto">
+        <MSBuild Projects="client\Cliente_Desconto.dproj"/>
+    </Target>
+    <Target Name="Cliente_Desconto:Clean">
+        <MSBuild Projects="client\Cliente_Desconto.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Cliente_Desconto:Make">
+        <MSBuild Projects="client\Cliente_Desconto.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Gsoft_Model;WinCash_Business_Desconto;WinCash_Business"/>
+        <CallTarget Targets="Gsoft_Model;WinCash_Business_Desconto;WinCash_Business;Cliente_Desconto"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Gsoft_Model:Clean;WinCash_Business_Desconto:Clean;WinCash_Business:Clean"/>
+        <CallTarget Targets="Gsoft_Model:Clean;WinCash_Business_Desconto:Clean;WinCash_Business:Clean;Cliente_Desconto:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Gsoft_Model:Make;WinCash_Business_Desconto:Make;WinCash_Business:Make"/>
+        <CallTarget Targets="Gsoft_Model:Make;WinCash_Business_Desconto:Make;WinCash_Business:Make;Cliente_Desconto:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

@@ -1,0 +1,33 @@
+unit Gsoft.Model.ValorMonetario;
+
+interface
+
+uses
+  SysUtils,
+  Math;
+  
+type
+  TValorMonetario = class
+  private
+    FValor: double;
+
+  public
+    property valor: double read Fvalor;
+    constructor Create(aValor : double);
+  end;
+
+implementation
+
+{ TValorMonetario }
+
+constructor TValorMonetario.Create(aValor: double);
+var
+  valorStr: string;
+begin
+  valorStr := aValor.ToString(ffNumber, 18, 3);
+  if valorStr[valorStr.Length] = '5' then
+    self.FValor := self.valor + 0.001;
+  self.FValor := RoundTo(aValor, -2);
+end;
+
+end.

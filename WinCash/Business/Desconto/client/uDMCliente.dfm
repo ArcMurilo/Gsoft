@@ -1,0 +1,61 @@
+object dmCliente: TdmCliente
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 219
+  Width = 477
+  object tbProduto: TFDMemTable
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    Left = 40
+    Top = 24
+    object tbProdutoCodigo: TIntegerField
+      FieldName = 'Codigo'
+    end
+    object tbProdutoDescricao: TStringField
+      FieldName = 'Descricao'
+      Size = 50
+    end
+    object tbProdutoPrecoVenda: TFloatField
+      FieldName = 'PrecoVenda'
+    end
+  end
+  object tbItem: TFDMemTable
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    Left = 120
+    Top = 24
+    object tbItemValorUnitarioBruto: TFloatField
+      FieldName = 'ValorUnitarioBruto'
+    end
+    object tbItemQuantidade: TFloatField
+      FieldName = 'Quantidade'
+    end
+    object tbItemDesconto: TFloatField
+      FieldName = 'Desconto'
+    end
+    object tbItemDescricaoProduto: TStringField
+      FieldName = 'DescricaoProduto'
+      Size = 100
+    end
+  end
+  object dsProduto: TDataSource
+    DataSet = tbProduto
+    Left = 40
+    Top = 80
+  end
+  object dsItem: TDataSource
+    DataSet = tbItem
+    Left = 120
+    Top = 80
+  end
+end

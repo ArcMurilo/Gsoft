@@ -1,0 +1,19 @@
+unit uTesteModelValorMonetario;
+
+interface
+
+uses
+  TestFramework,
+  Gsoft.Model.ValorMonetario;
+
+type
+  TTesteModelValorMonetario = class(TTestCase)
+
+  end;
+
+implementation
+
+initialization
+  TestFramework.RegisterTest('TTesteModelValorMonetario Teste', TTesteModelValorMonetario.Suite);
+
+end.
