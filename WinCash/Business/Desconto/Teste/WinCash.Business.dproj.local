@@ -2,14 +2,14 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2016/09/21 12:03:59.000.864,=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\Unit1.pas</Transaction>
-    <Transaction>2016/09/21 12:04:17.000.204,D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\uTesteDesconto.pas=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\Unit1.pas</Transaction>
-    <Transaction>2016/09/21 16:13:05.000.567,D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\uTesteDescontoAliquotaGeral.pas=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\uTesteDesconto.pas</Transaction>
+    <Transaction>2016/09/21 12:04:17.000.204,D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\Unit1.pas=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\uTesteDesconto.pas</Transaction>
+    <Transaction>2016/09/21 16:13:05.000.567,D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\uTesteDesconto.pas=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\uTesteDescontoAliquotaGeral.pas</Transaction>
     <Transaction>2016/09/21 16:21:42.000.104,=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\Unit1.pas</Transaction>
-    <Transaction>2016/09/21 16:23:29.000.137,D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\uTesteDescontoAliquotaVendedorProduto.pas=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\Unit1.pas</Transaction>
+    <Transaction>2016/09/21 16:23:29.000.137,D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\Unit1.pas=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\uTesteDescontoAliquotaVendedorProduto.pas</Transaction>
     <Transaction>2016/09/21 18:10:35.000.559,=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\Unit1.pas</Transaction>
-    <Transaction>2016/09/21 18:10:45.000.107,D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\uTesteDescontoRateamento.pas=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\Unit1.pas</Transaction>
+    <Transaction>2016/09/21 18:10:45.000.107,D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\Unit1.pas=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\uTesteDescontoRateamento.pas</Transaction>
     <Transaction>2016/09/22 15:05:38.000.533,=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\Unit1.pas</Transaction>
     <Transaction>2016/09/22 17:06:40.000.660,=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\Unit1.pas</Transaction>
-    <Transaction>2016/09/22 17:06:49.000.456,D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\Unit1.pas=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\uTesteDescontoAliquotaDesconto.pas</Transaction>
+    <Transaction>2016/09/22 17:06:49.000.456,D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\uTesteDescontoAliquotaDesconto.pas=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>
