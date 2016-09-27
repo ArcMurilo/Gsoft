@@ -1,0 +1,154 @@
+unit uTesteDescontoRateamentoVendedorProduto;
+
+interface
+
+uses
+  TestFramework,
+  Gsoft.Model.LancamentoVenda.Item,
+  Gsoft.Model.ValorMonetario,
+  Gsoft.Model.Produto,
+  Gsoft.Model.AliquotaDesconto,
+  WinCash.Business.Desconto.AliquotaVendedorProduto,
+  WinCash.Business.Desconto.RateamentoAliquotaVendedorProduto;
+
+type
+  TTesteDescontoRateamentoVendedorProduto = class(TTestCase)
+  private
+    listaItens : TLancamentoVendaItemLista;
+    listaItensComDescontoItem : TLancamentoVendaItemLista;
+  protected
+    procedure SetUp; override;
+    procedure TearDown; override;
+
+  published
+    procedure testeRateamento();
+    procedure testeRateamentoValorLiquidoInvalido();
+    procedure testeRateamentoValorMaximoDesconto();
+    procedure testeRateamentoChecagemValorValido();
+  end;
+
+implementation
+
+{ TTesteDescontoRateamentoVendedorProduto }
+
+procedure TTesteDescontoRateamentoVendedorProduto.SetUp;
+var
+  produto: TProduto;
+  item: TLancamentoVendaItem;
+begin
+  inherited;
+  listaItens := TLancamentoVendaItemLista.Create();
+  listaItensComDescontoItem := TLancamentoVendaItemLista.Create();
+
+  produto := TProduto.Create();
+  produto.Codigo := 1;
+  produto.Produto := 'COCA-COLA LATA';
+  produto.CustoRealUnitario.valor := 1.89;
+  produto.PrecoVenda.valor := 3.50;
+  produto.DescontoMaximo.aliquota := 5;
+  item := TLancamentoVendaItem.Create(produto);
+  item.valorDescontoLancamento.valor := 0.10;
+  listaItens.Add(TLancamentoVendaItem.Create(produto));
+  listaItensComDescontoItem.Add(item);
+
+  produto := TProduto.Create();
+  produto.Codigo := 2;
+  produto.Produto := 'X-FRANGO BACON';
+  produto.CustoRealUnitario.valor := 8;
+  produto.PrecoVenda.valor := 16.50;
+  produto.DescontoMaximo.aliquota := 10;
+  item := TLancamentoVendaItem.Create(produto);
+  item.valorDescontoLancamento.valor := 0.75;
+  listaItens.Add(TLancamentoVendaItem.Create(produto));
+  listaItensComDescontoItem.Add(item);
+
+  produto := TProduto.Create();
+  produto.Codigo := 3;
+  produto.Produto := 'HALLS';
+  produto.CustoRealUnitario.valor := 1;
+  produto.PrecoVenda.valor := 1.9;
+  produto.DescontoMaximo.aliquota := 0;
+  listaItens.Add(TLancamentoVendaItem.Create(produto));
+  listaItensComDescontoItem.Add(TLancamentoVendaItem.Create(produto));
+end;
+
+procedure TTesteDescontoRateamentoVendedorProduto.TearDown;
+begin
+  listaItens.Free();
+  listaItensComDescontoItem.Free();
+end;
+
+procedure TTesteDescontoRateamentoVendedorProduto.testeRateamento;
+var
+  rateamento: TDescontoRateamentoAliquotaVendedorProduto;
+  valorLiquido : TValorMonetario;
+begin
+  rateamento := TDescontoRateamentoAliquotaVendedorProduto.Create();
+  valorLiquido := TValorMonetario.Create(0);
+  valorLiquido.valor := 20.07;
+  rateamento.ratear(
+    valorLiquido,
+    TAliquotaDesconto.Create(10.00),
+    listaItens
+  );
+  checkTrue(valorLiquido.Equals(listaItens.valorTotalLiquido));
+
+  valorLiquido.valor := 20.06;
+  rateamento.ratear(
+    valorLiquido,
+    TAliquotaDesconto.Create(10.00),
+    listaItens
+  );
+  checkTrue(valorLiquido.Equals(listaItens.valorTotalLiquido));
+end;
+
+procedure TTesteDescontoRateamentoVendedorProduto.testeRateamentoChecagemValorValido;
+var
+  rateamento: TDescontoRateamentoAliquotaVendedorProduto;
+  valorLiquido: TValorMonetario;
+  aliquota : TAliquotaDesconto;
+begin
+  rateamento := TDescontoRateamentoAliquotaVendedorProduto.Create();
+  valorLiquido := TValorMonetario.Create(0);
+  aliquota := TAliquotaDesconto.Create(10);
+
+  valorLiquido.valor := 20.07;
+  checkTrue(rateamento.isValorLiquidoValido(valorLiquido, aliquota, listaItens));
+
+  valorLiquido.valor := 20.06;
+  checkFalse(rateamento.isValorLiquidoValido(valorLiquido, aliquota, listaItens));
+end;
+
+procedure TTesteDescontoRateamentoVendedorProduto.testeRateamentoValorLiquidoInvalido;
+var
+  rateamento: TDescontoRateamentoAliquotaVendedorProduto;
+  valorLiquido: TValorMonetario;
+begin
+  rateamento := TDescontoRateamentoAliquotaVendedorProduto.Create();
+  valorLiquido := TValorMonetario.Create(19);
+
+  rateamento.ratear(
+    valorLiquido,
+    TAliquotaDesconto.Create(10),
+    listaItens
+  );
+  checkTrue(listaItens.valorTotalLiquido.valor > valorLiquido.valor);
+end;
+
+procedure TTesteDescontoRateamentoVendedorProduto.testeRateamentoValorMaximoDesconto;
+var
+  rateamento: TDescontoRateamentoAliquotaVendedorProduto;
+  valorDescontoMaximo: TValorMonetario;
+
+begin
+  rateamento := TDescontoRateamentoAliquotaVendedorProduto.Create();
+  valorDescontoMaximo :=
+    rateamento.getDescontoMaximo(TAliquotaDesconto.Create(10), listaItens);
+  checkTrue(TValorMonetario.Create(1.83).Equals(valorDescontoMaximo));
+end;
+
+initialization
+  TestFramework.RegisterTest('TTesteDescontoRateamentoVendedorProduto Teste',
+    TTesteDescontoRateamentoVendedorProduto.Suite);
+
+end.

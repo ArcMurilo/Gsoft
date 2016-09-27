@@ -1,0 +1,41 @@
+package Gsoft.Model;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl;
+
+contains
+  Gsoft.Model.Produto in 'lib\Gsoft.Model.Produto.pas',
+  Gsoft.Model.TabelaPreco in 'lib\Gsoft.Model.TabelaPreco.pas',
+  Gsoft.Model.ProdutoTabelaPreco in 'lib\Gsoft.Model.ProdutoTabelaPreco.pas',
+  Gsoft.Model.LancamentoVenda.Item in 'lib\Gsoft.Model.LancamentoVenda.Item.pas',
+  Gsoft.Model.ValorMonetario in 'lib\Gsoft.Model.ValorMonetario.pas',
+  Gsoft.Model.AliquotaDesconto in 'lib\Gsoft.Model.AliquotaDesconto.pas';
+
+end.

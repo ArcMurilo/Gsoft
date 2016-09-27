@@ -69,7 +69,7 @@ end;
 function TLancamentoVendaItem.getValorDescontoDisponivel: TValorMonetario;
 begin
   result := TValorMonetario.Create(0);
-  result.valor := self.FValorUnitarioBruto.valor * self.produto.DescontoMaximo / 100;
+  result.valor := self.FValorUnitarioBruto.valor * self.produto.DescontoMaximo.aliquota / 100;
   result.valor := result.valor - self.valorTotalDesconto.valor;
 end;
 

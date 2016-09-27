@@ -1,0 +1,20 @@
+unit Gsoft.Model.LancamentoVenda.Venda;
+
+interface
+
+uses
+  Gsoft.Model.LancamentoVenda.Item,
+  Gsoft.Model.IDesconto;
+
+type
+  TLancamentoVendaVenda = class
+  private
+    FlistaItens: TLancamentoVendaItemLista;
+
+  public
+    property listaItens: TLancamentoVendaItemLista read FlistaItens;
+  end;
+
+implementation
+
+end.

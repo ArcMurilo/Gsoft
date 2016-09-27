@@ -87,8 +87,8 @@ begin
   rateamento := TDescontoRateamentoAliquotaGeral.Create();
   valorLiquido := StrToFloat(edtValorLiquido.Text);
   rateamento.ratear(
-    TAliquotaDesconto.Create(20),
     TValorMonetario.Create(valorLiquido),
+    TAliquotaDesconto.Create(20),
     listaItens
   );
   dmCliente.limparItens();

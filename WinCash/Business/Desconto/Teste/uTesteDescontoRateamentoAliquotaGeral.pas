@@ -39,7 +39,7 @@ begin
   produto.Produto := 'COCA-COLA LATA';
   produto.CustoRealUnitario.valor := 1.89;
   produto.PrecoVenda.valor := 3.50;
-  produto.DescontoMaximo := 5;
+  produto.DescontoMaximo.aliquota := 5;
   listaItens.Add(TLancamentoVendaItem.Create(produto));
   produto := TProduto.Create();
   produto.Codigo := 2;
@@ -61,8 +61,8 @@ var
 begin
   rateamento := TDescontoRateamentoAliquotaGeral.Create();
   rateamento.ratear(
-    TAliquotaDesconto.Create(10.00),
     TValorMonetario.Create(18.00),
+    TAliquotaDesconto.Create(10.00),
     self.listaItens
   );
   checkTrue(
@@ -74,8 +74,8 @@ begin
   );
   listaItens.limparDescontoFechamento();
   rateamento.ratear(
-    TAliquotaDesconto.Create(10.00),
     TValorMonetario.Create(18.50),
+    TAliquotaDesconto.Create(10.00),
     self.listaItens
   );
   checkTrue(
@@ -93,8 +93,8 @@ var
 begin
   rateamento := TDescontoRateamentoAliquotaGeral.Create();
   rateamento.ratear(
-    TAliquotaDesconto.Create(10.00),
     TValorMonetario.Create(15),
+    TAliquotaDesconto.Create(10.00),
     listaItens);
   checkTrue(
     abs(listaItens.valorTotalBruto.valor - listaItens.valorTotalLiquido.valor) < 0.01,

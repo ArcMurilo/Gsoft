@@ -1,0 +1,15 @@
+unit Gsoft.Model.LancamentoVenda.Venda;
+
+interface
+
+type
+  TLancamentoVendaVenda = class
+  private
+
+  public
+
+  end;
+
+implementation
+
+end.

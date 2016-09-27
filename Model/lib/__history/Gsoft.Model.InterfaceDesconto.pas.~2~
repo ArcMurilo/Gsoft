@@ -1,0 +1,16 @@
+unit Gsoft.Model.InterfaceDesconto;
+
+interface
+
+uses
+  Gsoft.Model.ValorMonetario;
+
+type
+  IDesconto = interface
+    procedure ratear(
+      valorLiquido
+  end;
+
+implementation
+
+end.

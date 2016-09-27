@@ -109,7 +109,7 @@ begin
   result.Codigo := tbProdutoCodigo.Value;
   result.Produto := tbProdutoDescricao.Value;
   result.PrecoVenda.valor := tbProdutoPrecoVenda.Value;
-  result.DescontoMaximo := tbProdutoDescontoMaximo.Value;
+  result.DescontoMaximo.aliquota := tbProdutoDescontoMaximo.Value;
 end;
 
 end.

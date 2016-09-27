@@ -55,13 +55,11 @@ object Form3: TForm3
       item
         Expanded = False
         FieldName = 'Quantidade'
-        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Desconto'
-        Width = 64
         Visible = True
       end>
   end
