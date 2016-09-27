@@ -18,8 +18,8 @@ uses
   DUnitTestRunner,
   uTesteDescontoAliquotaGeral in 'uTesteDescontoAliquotaGeral.pas',
   uTesteDescontoAliquotaVendedorProduto in 'uTesteDescontoAliquotaVendedorProduto.pas',
-  uTesteDescontoRateamento in 'uTesteDescontoRateamento.pas',
-  uTesteDescontoAliquotaDesconto in 'uTesteDescontoAliquotaDesconto.pas';
+  uTesteDescontoRateamentoAliquotaGeral in 'uTesteDescontoRateamentoAliquotaGeral.pas',
+  uTesteDescontoRateamentoVendedorProduto in 'uTesteDescontoRateamentoVendedorProduto.pas';
 
 {$R *.RES}
 

@@ -1,0 +1,20 @@
+unit WinCash.Business.Desconto.RateamentoDescontoAliquotaVendedorProduto;
+
+interface
+
+uses
+  Gsoft.Model.LancamentoVenda.Item,
+  Gsoft.Model.ValorMonetario,
+  WinCash.Business.Desconto.AliquotaDesconto;
+
+type
+  TDescontoRateamentoAliquotaVendedorProduto = class
+  public
+    procedure ratear(valorLiquido : TValorMonetario;
+      aliquotaDesconto : TAliquotaDesconto; listaItens : TLancamentoVendaItemLista)
+  end;
+
+
+implementation
+
+end.

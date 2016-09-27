@@ -55,11 +55,13 @@ object Form3: TForm3
       item
         Expanded = False
         FieldName = 'Quantidade'
+        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Desconto'
+        Width = 64
         Visible = True
       end>
   end
@@ -94,5 +96,14 @@ object Form3: TForm3
     Width = 121
     Height = 25
     TabOrder = 4
+  end
+  object BitBtn1: TBitBtn
+    Left = 576
+    Top = 224
+    Width = 161
+    Height = 25
+    Caption = 'Aplicar valor liquido 2'
+    TabOrder = 5
+    OnClick = BitBtn1Click
   end
 end

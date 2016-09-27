@@ -4,6 +4,6 @@
     <Transaction>2016/09/21 12:12:30.000.644,C:\Users\Murilo Augusto\Documents\Embarcadero\Studio\Projects\ProjectGroup1.groupproj=D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\prjPackageDesconto.groupproj</Transaction>
   </Transactions>
 	<Default.Personality>
-		<Projects ActiveProject="D:\GSOFT\Packages\Gsoft\WinCash\Business\Desconto\Teste\WinCash.Business.dproj"/>
+		<Projects ActiveProject="E:\develop\Gsoft\WinCash\Business\Desconto\client\Cliente_Desconto.dproj"/>
 	</Default.Personality>
 </BorlandProject>

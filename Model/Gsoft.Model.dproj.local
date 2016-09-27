@@ -22,6 +22,9 @@
     <Transaction>2016/09/21 19:13:15.000.246,D:\GSOFT\Packages\Gsoft\Model\lib\Gsoft.Model.TabelaPreco.pas=D:\GSOFT\Packages\Gsoft\Model\Gsoft.Model.TabelaPreco.pas</Transaction>
     <Transaction>2016/09/22 17:28:06.000.089,=D:\GSOFT\Packages\Gsoft\Model\Unit1.pas</Transaction>
     <Transaction>2016/09/22 17:28:30.000.229,D:\GSOFT\Packages\Gsoft\Model\Unit1.pas=D:\GSOFT\Packages\Gsoft\Model\lib\Gsoft.Model.ValorMonetario.pas</Transaction>
+    <Transaction>2016/09/26 20:11:14.000.935,=E:\develop\Gsoft\Model\lib\Gsoft.Model.AliquotaDesconto.pas</Transaction>
+    <Transaction>2016/09/26 20:11:57.000.122,E:\develop\Gsoft\Model\lib\Gsoft.Model.AliquotaDesconto.pas=</Transaction>
+    <Transaction>2016/09/26 20:12:49.000.314,=E:\develop\Gsoft\Model\lib\Gsoft.Model.AliquotaDesconto.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="lib"/>
@@ -30,6 +33,7 @@
     <File Path="lib\Gsoft.Model.ProdutoTabelaPreco.pas"/>
     <File Path="lib\Gsoft.Model.TabelaPreco.pas"/>
     <File Path="lib\Gsoft.Model.ValorMonetario.pas"/>
+    <File Path="lib\Gsoft.Model.AliquotaDesconto.pas"/>
     <File Path="rtl.dcp"/>
   </ProjectSortOrder>
 </BorlandProject>

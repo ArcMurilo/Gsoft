@@ -19,6 +19,7 @@ type
     function getValorTotalLiquido: TValorMonetario;
     function getValorTotalDesconto: TValorMonetario;
     function getValorTotalBruto: TValorMonetario;
+    function getValorDescontoDisponivel: TValorMonetario;
   public
     property produto: TProduto read FProduto;
     property valorUnitarioBruto: TValorMonetario read FValorUnitarioBruto write FValorUnitarioBruto;
@@ -28,6 +29,7 @@ type
     property valorTotalDesconto : TValorMonetario read getValorTotalDesconto;
     property valorTotalBruto: TValorMonetario read getValorTotalBruto;
     property valorTotalLiquido: TValorMonetario read getValorTotalLiquido;
+    property valorDescontoDisponivel : TValorMonetario read getValorDescontoDisponivel;
     constructor Create(aProduto : TProduto);
     destructor Destroy(); override;
   end;
@@ -62,6 +64,13 @@ destructor TLancamentoVendaItem.Destroy;
 begin
 
   inherited;
+end;
+
+function TLancamentoVendaItem.getValorDescontoDisponivel: TValorMonetario;
+begin
+  result := TValorMonetario.Create(0);
+  result.valor := self.FValorUnitarioBruto.valor * self.produto.DescontoMaximo / 100;
+  result.valor := result.valor - self.valorTotalDesconto.valor;
 end;
 
 function TLancamentoVendaItem.getValorTotalBruto: TValorMonetario;

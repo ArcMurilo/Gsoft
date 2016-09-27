@@ -8,7 +8,7 @@ uses
   Gsoft.Model.LancamentoVenda.Item,
   Gsoft.Model.Produto,
   Gsoft.Model.ValorMonetario,
-  WinCash.Business.Desconto.RateamentoDesconto,
+  WinCash.Business.Desconto.RateamentoDescontoAliquotaGeral,
   WinCash.Business.Desconto.AliquotaGeral,
   WinCash.Business.Desconto.AliquotaDesconto;
 

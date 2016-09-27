@@ -35,6 +35,7 @@ contains
   Gsoft.Model.TabelaPreco in 'lib\Gsoft.Model.TabelaPreco.pas',
   Gsoft.Model.ProdutoTabelaPreco in 'lib\Gsoft.Model.ProdutoTabelaPreco.pas',
   Gsoft.Model.LancamentoVenda.Item in 'lib\Gsoft.Model.LancamentoVenda.Item.pas',
-  Gsoft.Model.ValorMonetario in 'lib\Gsoft.Model.ValorMonetario.pas';
+  Gsoft.Model.ValorMonetario in 'lib\Gsoft.Model.ValorMonetario.pas',
+  Gsoft.Model.AliquotaDesconto in 'lib\Gsoft.Model.AliquotaDesconto.pas';
 
 end.

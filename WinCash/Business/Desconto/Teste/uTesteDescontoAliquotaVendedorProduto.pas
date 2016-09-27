@@ -5,7 +5,8 @@ interface
 uses
   TestFramework,
   WinCash.Business.Desconto.AliquotaVendedorProduto,
-  WinCash.Business.Desconto.AliquotaDesconto;
+  Gsoft.Model.AliquotaDesconto,
+  Gsoft.Model.ValorMonetario;
 
 type
   TTesteDescontoAliquotaVendedorProduto = class(TTestCase)
@@ -28,12 +29,16 @@ begin
   desconto := TDescontoAliquotaVendedorProduto.Create(
     TAliquotaDesconto.Create(8), TAliquotaDesconto.Create(10)
   );
-  checkEquals(8, desconto.descontoMaximo(100));
+  checkTrue(
+    TValorMonetario.Create(8).Equals(desconto.descontoMaximo(TValorMonetario.Create(100)))
+  );
   desconto.Free();
   desconto := TDescontoAliquotaVendedorProduto.Create(
     TAliquotaDesconto.Create(18), TAliquotaDesconto.Create(10)
   );
-  checkEquals(10, desconto.descontoMaximo(100));
+  checkTrue(
+    TValorMonetario.Create(10).Equals(desconto.descontoMaximo(TValorMonetario.Create(100)))
+  );
   desconto.Free();
 end;
 
@@ -44,8 +49,8 @@ begin
   desconto := TDescontoAliquotaVendedorProduto.Create(
     TAliquotaDesconto.Create(10), TAliquotaDesconto.Create(8)
   );
-  checkTrue(desconto.isValorLiquidoValido(92, 100));
-  checkFalse(desconto.isValorLiquidoValido(90, 100));
+  checkTrue(desconto.isValorLiquidoValido(TValorMonetario.Create(92), TValorMonetario.Create(100)));
+  checkFalse(desconto.isValorLiquidoValido(TValorMonetario.Create(90), TValorMonetario.Create(100)));
 end;
 
 initialization

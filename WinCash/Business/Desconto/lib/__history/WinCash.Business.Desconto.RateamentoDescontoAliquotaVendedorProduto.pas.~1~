@@ -1,0 +1,7 @@
+unit WinCash.Business.Desconto.RateamentoDescontoAliquotaVendedorProduto;
+
+interface
+
+implementation
+
+end.

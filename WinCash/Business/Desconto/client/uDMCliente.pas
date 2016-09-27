@@ -22,6 +22,7 @@ type
     dsProduto: TDataSource;
     dsItem: TDataSource;
     tbItemDescricaoProduto: TStringField;
+    tbProdutoDescontoMaximo: TFloatField;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -61,30 +62,35 @@ begin
   tbProdutoCodigo.Value := 1;
   tbProdutoDescricao.Value := 'Coca Cola Lata';
   tbProdutoPrecoVenda.Value := 3.50;
+  tbProdutoDescontoMaximo.Value := 5;
   tbProduto.Post();
 
   tbProduto.Append();
   tbProdutoCodigo.Value := 2;
   tbProdutoDescricao.Value := 'X-Bacon';
   tbProdutoPrecoVenda.Value := 16.90;
+  tbProdutoDescontoMaximo.Value := 10;
   tbProduto.Post();
 
   tbProduto.Append();
   tbProdutoCodigo.Value := 3;
   tbProdutoDescricao.Value := 'Suco Laranja';
   tbProdutoPrecoVenda.Value := 3.90;
+  tbProdutoDescontoMaximo.Value := 5;
   tbProduto.Post();
 
   tbProduto.Append();
   tbProdutoCodigo.Value := 4;
   tbProdutoDescricao.Value := 'Halls';
   tbProdutoPrecoVenda.Value := 1.60;
+  tbProdutoDescontoMaximo.Value := 0;
   tbProduto.Post();
 
   tbProduto.Append();
   tbProdutoCodigo.Value := 5;
   tbProdutoDescricao.Value := 'X-Salada';
   tbProdutoPrecoVenda.Value := 12.90;
+  tbProdutoDescontoMaximo.Value := 10;
   tbProduto.Post();
 end;
 
@@ -103,6 +109,7 @@ begin
   result.Codigo := tbProdutoCodigo.Value;
   result.Produto := tbProdutoDescricao.Value;
   result.PrecoVenda.valor := tbProdutoPrecoVenda.Value;
+  result.DescontoMaximo := tbProdutoDescontoMaximo.Value;
 end;
 
 end.

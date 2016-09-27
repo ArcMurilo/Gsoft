@@ -16,7 +16,8 @@ program Gsoft.ModelTestes;
 
 uses
   DUnitTestRunner,
-  uTesteModelValorMonetario in 'uTesteModelValorMonetario.pas';
+  uTesteModelValorMonetario in 'uTesteModelValorMonetario.pas',
+  uTesteModelAliquotaDesconto in 'uTesteModelAliquotaDesconto.pas';
 
 {$R *.RES}
 

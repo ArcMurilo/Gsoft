@@ -3,7 +3,7 @@ unit WinCash.Business.Desconto.AliquotaGeral;
 interface
 
 uses
-  WinCash.Business.Desconto.AliquotaDesconto,
+  Gsoft.Model.AliquotaDesconto,
   Gsoft.Model.ValorMonetario;
 
 type

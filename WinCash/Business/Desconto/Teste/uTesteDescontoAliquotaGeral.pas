@@ -6,7 +6,7 @@ uses
   TestFramework,
   Gsoft.Model.ValorMonetario,
   WinCash.Business.Desconto.AliquotaGeral,
-  WinCash.Business.Desconto.AliquotaDesconto;
+  Gsoft.Model.AliquotaDesconto;
 
 type
   TTesteDescontoAliquotaGeral = class(TTestCase)

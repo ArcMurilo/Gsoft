@@ -1,0 +1,13 @@
+unit WinCash.Business.Desconto.RateamentoDescontoAliquotaVendedorProduto;
+
+interface
+
+type
+  TDescontoRateamentoAliquotaVendedorProduto = class
+
+  end;
+
+
+implementation
+
+end.

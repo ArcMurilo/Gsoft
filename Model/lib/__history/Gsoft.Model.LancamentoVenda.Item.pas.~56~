@@ -1,0 +1,127 @@
+unit Gsoft.Model.LancamentoVenda.Item;
+
+interface
+
+uses
+  SysUtils,
+  Gsoft.Model.Produto,
+  System.Generics.Collections,
+  Gsoft.Model.ValorMonetario;
+
+type
+  TLancamentoVendaItem = class
+  private
+    FProduto: TProduto;
+    FValorUnitarioBruto: TValorMonetario;
+    FQuantidade: double;
+    FValorDescontoLancamento: TValorMonetario;
+    FValorDescontoFechamento: TValorMonetario;
+    function getValorTotalLiquido: TValorMonetario;
+    function getValorTotalDesconto: TValorMonetario;
+    function getValorTotalBruto: TValorMonetario;
+  public
+    property produto: TProduto read FProduto;
+    property valorUnitarioBruto: TValorMonetario read FValorUnitarioBruto write FValorUnitarioBruto;
+    property quantidade: double read FQuantidade write FQuantidade;
+    property valorDescontoLancamento: TValorMonetario read FValorDescontoLancamento write FValorDescontoLancamento;
+    property valorDescontoFechamento: TValorMonetario read FValorDescontoFechamento write FValorDescontoFechamento;
+    property valorTotalDesconto : TValorMonetario read getValorTotalDesconto;
+    property valorTotalBruto: TValorMonetario read getValorTotalBruto;
+    property valorTotalLiquido: TValorMonetario read getValorTotalLiquido;
+    property valorDescontoDisponivel : TValorMonetario read getValorDescontoDisponivel;
+    constructor Create(aProduto : TProduto);
+    destructor Destroy(); override;
+  end;
+
+  TLancamentoVendaItemLista = class(TList<TLancamentoVendaItem>)
+  private
+    function getValorTotalBruto: TValorMonetario;
+    function getValorTotalLiquido: TValorMonetario;
+    function getItemMaiorValor: TLancamentoVendaItem;
+
+  public
+    property valorTotalBruto: TValorMonetario read getValorTotalBruto;
+    property valorTotalLiquido: TValorMonetario read getValorTotalLiquido;
+    property itemMaiorValor : TLancamentoVendaItem read getItemMaiorValor;
+    procedure limparDescontoFechamento();
+  end;
+
+implementation
+
+{ TLancamentoVendaItem }
+
+constructor TLancamentoVendaItem.Create(aProduto: TProduto);
+begin
+  self.FProduto := aProduto;
+  self.valorUnitarioBruto := TValorMonetario.Create(self.produto.PrecoVenda.valor);
+  self.quantidade := 1;
+  self.valorDescontoLancamento := TValorMonetario.Create(0);
+  self.valorDescontoFechamento := TValorMonetario.Create(0);
+end;
+
+destructor TLancamentoVendaItem.Destroy;
+begin
+
+  inherited;
+end;
+
+function TLancamentoVendaItem.getValorTotalBruto: TValorMonetario;
+begin
+  result := TValorMonetario.Create(self.valorUnitarioBruto.valor * self.quantidade);
+end;
+
+function TLancamentoVendaItem.getValorTotalDesconto: TValorMonetario;
+begin
+  result := TValorMonetario.Create(self.valorDescontoLancamento.valor + self.valorDescontoFechamento.valor);
+end;
+
+function TLancamentoVendaItem.getValorTotalLiquido: TValorMonetario;
+begin
+  result := TValorMonetario.Create(self.valorUnitarioBruto.valor * self.quantidade - self.valorTotalDesconto.valor);
+end;
+
+{ TLancamentoVendaItemLista }
+
+function TLancamentoVendaItemLista.getItemMaiorValor: TLancamentoVendaItem;
+var
+  item: TLancamentoVendaItem;
+  i: Integer;
+begin
+  if self.Count = 0 then
+    raise Exception.Create('Lista vazia.');
+  result := self[0];
+  for i := 1 to self.Count - 1 do
+  begin
+    item := self[i];
+    if item.FValorUnitarioBruto.valor > result.FValorUnitarioBruto.valor then
+      result := item;
+  end;
+end;
+
+function TLancamentoVendaItemLista.getValorTotalBruto: TValorMonetario;
+var
+  item: TLancamentoVendaItem;
+begin
+  result := TValorMonetario.Create(0);
+  for item in self do
+    result.valor := result.valor + item.valorTotalBruto.valor;
+end;
+
+function TLancamentoVendaItemLista.getValorTotalLiquido: TValorMonetario;
+var
+  item: TLancamentoVendaItem;
+begin
+  result := TValorMonetario.Create(0);
+  for item in self do
+    result.valor := result.valor + item.valorTotalLiquido.valor;
+end;
+
+procedure TLancamentoVendaItemLista.limparDescontoFechamento;
+var
+  item: TLancamentoVendaItem;
+begin
+  for item in self do
+    item.valorDescontoFechamento.valor := 0;
+end;
+
+end.
